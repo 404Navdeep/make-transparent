@@ -1,5 +1,5 @@
 # Make Transparent!
-A small Node.js/TypeScript tool that takes images from a Pinterest board, downloads them, and removes their backgrounds using a Replicate-compatible background-removal API.
+A small TypeScript tool that takes images from a Pinterest board, downloads them, and removes their backgrounds using a Replicate-compatible background-removal API.
 ---
 ## Usage
 ### Requirements 
