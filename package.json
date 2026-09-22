@@ -1,14 +1,14 @@
 {
-  "name": "make-sticky",
+  "name": "make-transparent",
   "version": "1.0.0",
   "description": "Make your pintrest images into transparent for stickers!",
-  "homepage": "https://github.com/404Navdeep/make-sticky#readme",
+  "homepage": "https://github.com/404Navdeep/make-transparent#readme",
   "bugs": {
-    "url": "https://github.com/404Navdeep/make-sticky/issues"
+    "url": "https://github.com/404Navdeep/make-transparent/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/404Navdeep/make-sticky.git"
+    "url": "git+https://github.com/404Navdeep/make-transparent.git"
   },
   "license": "ISC",
   "author": "404Navdeep",
