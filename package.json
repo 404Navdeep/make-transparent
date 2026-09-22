@@ -15,7 +15,8 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "test": "node --test"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
