@@ -1,7 +1,6 @@
-import "dotenv/config";
 import fs from "node:fs/promises";
 import path from "node:path";
-
+import { getApiKey, getPinterestCookies } from "./config.js";
 import { getPinterestImages } from "./pinterest.js";
 import { removeBackground } from "./remove-bg.js";
 
@@ -44,16 +43,13 @@ function extensionFromUrl(url: string) {
 }
 
 async function main() {
+    const apiKey = await getApiKey();
+    const cookies = await getPinterestCookies();
     const boardUrl = process.argv[2];
     if (!boardUrl) {
         console.log("Usage: npm start -- <Pintrest board url>");
     
     process.exit(1)}
-
-
-    if (!process.env.REMOVEBG_KEY) {
-        throw new Error("API missing");
-    }
 
     await fs.mkdir(OG_DIR, {
         recursive: true
@@ -68,7 +64,7 @@ async function main() {
         Make Transparent!
         ---
         `);
-    const images = await getPinterestImages(boardUrl);
+    const images = await getPinterestImages(boardUrl, cookies,);
 
     console.log(`
         Found ${images.length} images
@@ -97,7 +93,7 @@ async function main() {
         try {
             await download(url, originalPath);
             console.log(`[${i + 1}/${images.length}] removing background`);
-            const outputUrl = await removeBackground(url);
+            const outputUrl = await removeBackground(url, apiKey,);
             await download(
                 outputUrl,
                 outputPath

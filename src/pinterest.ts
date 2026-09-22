@@ -1,7 +1,4 @@
-import fs from "node:fs/promises";
 import { chromium, BrowserContext } from "playwright";
-
-const COOKIE_FILE = "pinterest-cookies.json";
 
 function convertCookies(input: any[]) {
     return input
@@ -52,23 +49,21 @@ function convertCookies(input: any[]) {
         });
 }
 
-async function loadCookies(context: BrowserContext) {
-    try {
-        const raw = await fs.readFile(COOKIE_FILE, "utf8");
-        const cookies = JSON.parse(raw);
-
-        if (!Array.isArray(cookies)) {
-            throw new Error("Cookie file isnt an array");
-        }
-        const converted = convertCookies(cookies);
-
-        await context.addCookies(converted);
-        console.log(`Loaded ${converted.length} Cookies`);
-    } catch {console.log("No cookies loaded, use public")
+async function loadCookies(context: BrowserContext, cookies?: any[],) {
+    if (!cookies?.length) {
+        console.log("NO cookies provided");
+        return;
     }
+    const converted = convertCookies(cookies);
+    if (!converted.length) {
+        console.log("No cookies found");
+        return;
+    }
+    await context.addCookies(converted);
+    console.log(`Loaded ${converted.length} Pinterest cookies for this run`,)
 }
 
-export async function getPinterestImages(boardUrl: string): Promise<string[]> {
+export async function getPinterestImages(boardUrl: string, cookies?: any[],): Promise<string[]> {
     const browser = await chromium.launch({
         headless: true
     });

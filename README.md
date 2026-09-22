@@ -19,7 +19,7 @@ Clone or download the project and open cmd
     MODEL=
     ```
 4. Get ur api key from: ai.hackclub.com btw (really cool free ai)
-5. Then run ``npm start -- "https://www.pinterest.com/USERNAME/BOARD`` to run.
+5. Then run ``npm start -- "https://www.pinterest.com/USERNAME/BOARD"`` to run.
 ---
 ## Features
 - Extracts all images from pinterest boards.

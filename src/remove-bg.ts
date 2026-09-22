@@ -1,6 +1,5 @@
-const API_BASE = process.env.API_BASE
-const MODEL = process.env.MODEL
-
+const API_BASE = ""
+const MODEL_VERSION = ""
 function authHeaders() {
     const key = process.env.REMOVEBG_KEY;
 
@@ -14,30 +13,31 @@ function authHeaders() {
     };
 }
 
-export async function removeBackground(imageUrl:string): Promise<string> {
+export async function removeBackground(imageUrl:string, apiKey: string,): Promise<string> {
     const response = await fetch(
         `${API_BASE}/predictions`,
         {
             method: "POST",
             headers: {
-                ...authHeaders(),
-                Prefer: "wait"
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
             },
+
             body: JSON.stringify({
-                version: "95fcc2a26d3899cd6c2691c900465aaeff466285a65c14638cc5f36f34befaf1",
+                version: MODEL_VERSION,
                 input: {
-                    image: imageUrl
-                }
-            })
-        }
+                    image: imageUrl,
+                },
+            }),
+        },
     );
-    const text = await response.text();
 
     if (!response.ok){
+        const text = await response.text();
         throw new Error(`Background removal failed(${response.status}): ${text}`);
     }
 
-    const prediction = JSON.parse(text);
+    const prediction = await response.json();
 
     if (prediction.status === "succeeded") {
         return getOutputUrl(prediction.output);
@@ -46,10 +46,6 @@ export async function removeBackground(imageUrl:string): Promise<string> {
         throw new Error(
             prediction.error || "failed :("
         );
-    }
-
-    if (!prediction.id) {
-        throw new Error(`Unexpected Replicate response: ${text}`);
     }
 
     return pollPrediction(prediction.id);
