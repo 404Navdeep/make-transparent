@@ -8,7 +8,7 @@ A small TypeScript tool that takes images from a Pinterest board, downloads them
 - A Pinterest account cookies (only for private boards)
 - A Hack Club AI/ Replicate API key
 ### Installation
-We are officially of npm registory!! (Make Transparen)[https://www.npmjs.com/package/make-transparent]
+We are officially of npm registory!! [Make Transparen](https://www.npmjs.com/package/make-transparent)
 
 1. Run: ``npm i -g make-trasparent`` to install Make Transparent Globaly
 2. Run: ``npx playwright install chromium`` to install the chromium browser for playwright.
