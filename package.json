@@ -1,6 +1,6 @@
 {
   "name": "make-transparent",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Make your pintrest images into transparent for stickers!",
   "homepage": "https://github.com/404Navdeep/make-transparent#readme",
   "bugs": {
@@ -10,13 +10,21 @@
     "type": "git",
     "url": "git+https://github.com/404Navdeep/make-transparent.git"
   },
+  "bin": {
+    "make-transparent": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "license": "ISC",
   "author": "404Navdeep",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
+    "build": "tsc",
     "start": "tsx src/index.ts",
-    "test": "tsx src/index.ts"
+    "test": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
@@ -44,7 +52,7 @@
     "undici-types": "^7.18.2"
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.6",
     "typescript": "^7.0.2"
   }
 }
