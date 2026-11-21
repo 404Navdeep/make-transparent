@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import { getApiKey, getPinterestCookies } from "./config.js";
@@ -93,7 +95,7 @@ async function main() {
         try {
             await download(url, originalPath);
             console.log(`[${i + 1}/${images.length}] removing background`);
-            const outputUrl = await removeBackground(url, apiKey,);
+            const outputUrl = await removeBackground(url, apiKey);
             await download(
                 outputUrl,
                 outputPath

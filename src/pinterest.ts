@@ -49,18 +49,27 @@ function convertCookies(input: any[]) {
         });
 }
 
-async function loadCookies(context: BrowserContext, cookies?: any[],) {
+async function loadCookies(
+    context: BrowserContext,
+    cookies?: any[],
+) {
     if (!cookies?.length) {
         console.log("NO cookies provided");
         return;
     }
+
     const converted = convertCookies(cookies);
+
     if (!converted.length) {
         console.log("No cookies found");
         return;
     }
+
     await context.addCookies(converted);
-    console.log(`Loaded ${converted.length} Pinterest cookies for this run`,)
+
+    console.log(
+        `Loaded ${converted.length} Pinterest cookies for this run`,
+    );
 }
 
 export async function getPinterestImages(boardUrl: string, cookies?: any[],): Promise<string[]> {
@@ -73,7 +82,7 @@ export async function getPinterestImages(boardUrl: string, cookies?: any[],): Pr
         "AppleWebKit/537.36 (KHTML, like Gecko)"+
         "Chrome/151.0.0.0 Safari/537.36"
     });
-    await loadCookies(context);
+    await loadCookies(context, cookies);
     const page = await context.newPage();
     console.log("Opening Pinterest Board");
     await page.goto(boardUrl, {
@@ -133,7 +142,7 @@ export async function getPinterestImages(boardUrl: string, cookies?: any[],): Pr
 
         const after = imageUrls.size + pinUrls.size;
 
-        console.log(`Scroll ${i + 1}: ${pinUrls.size}, ${imageUrls.size} images`);
+        console.log(`Scroll ${i + 1}: ${imageUrls.size}, ${imageUrls.size} images`);
 
         if (after === before) {
             unchanged++;

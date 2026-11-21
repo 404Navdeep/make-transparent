@@ -14,11 +14,10 @@ Clone or download the project and open cmd
 2. Then to install run: ``npm i``
 3. Create .env 
     ```.env
-    REMOVEBG_KEY=
-    API_BASE=
-    MODEL=
+    REPLICATE_API_TOKEN=
     ```
 4. Get ur api key from: ai.hackclub.com btw (really cool free ai)
+   The background remover uses `lucataco/remove-bg:95fcc2a26d3899cd6c2691c900465aaeff466285a65c14638cc5f36f34befaf1` through the Hack Club Replicate proxy.
 5. Then run ``npm start -- "https://www.pinterest.com/USERNAME/BOARD"`` to run.
 ---
 ## Features

@@ -76,7 +76,7 @@
     },
     {
         "name": "_routing_id",
-        "value": "\"2c93f476-00d8-4382-a6d9-fe36ec87581d\"",
+        "value": "\"f0716a9e-bb6f-42ae-bd80-d1a5b46c6d0c\"",
         "domain": "www.pinterest.com",
         "hostOnly": true,
         "path": "/",
@@ -86,12 +86,12 @@
         "session": false,
         "firstPartyDomain": "",
         "partitionKey": null,
-        "expirationDate": 1790018009.273,
+        "expirationDate": 1790693043.861,
         "storeId": null
     },
     {
         "name": "g_state",
-        "value": "{\"i_l\":0,\"i_ll\":1789931614689,\"i_b\":\"zBWJVasS89bGufYgLHfJD9P1yOa7Rl83ngp1toqnLgU\",\"i_e\":{\"enable_itp_optimization\":24},\"i_et\":1789931614689}",
+        "value": "{\"i_l\":0,\"i_ll\":1790686611719,\"i_b\":\"b2CtTR1brbpB+ZsNlhO8v67dnNE1xJBr7dyleFiD1FM\",\"i_e\":{\"enable_itp_optimization\":24},\"i_et\":1790686611719}",
         "domain": "www.pinterest.com",
         "hostOnly": true,
         "path": "/",
@@ -101,7 +101,7 @@
         "session": false,
         "firstPartyDomain": "",
         "partitionKey": null,
-        "expirationDate": 1805483614,
+        "expirationDate": 1806238611,
         "storeId": null
     },
     {
@@ -131,7 +131,7 @@
         "session": false,
         "firstPartyDomain": "",
         "partitionKey": null,
-        "expirationDate": 1789974811,
+        "expirationDate": 1790729795,
         "storeId": null
     }
 ]

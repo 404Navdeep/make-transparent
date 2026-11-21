@@ -41,6 +41,13 @@ async function saveConfig(config: Config): Promise<void> {
 }
 
 export async function getApiKey(): Promise<string> {
+    const envKey = process.env.REPLICATE_API_TOKEN ?? process.env.REMOVEBG_KEY;
+
+    if (envKey) {
+        console.log("API key loaded from environment.\n");
+        return envKey;
+    }
+
     const existing = await loadConfig();
 
     if (existing?.apiKey) {
